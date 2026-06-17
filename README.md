@@ -11,7 +11,6 @@ It consists of:
 - a Windows sidebar client that stays on the screen edge
 - an admin dashboard for viewing and editing connected clients
 - optional machine-wide client updates through a local updater service
-- easy userfriendly build GUI script 
 
 The project was built for internal LAN use first. It can be adapted for other office, helpdesk, reception, classroom, or shared-workstation scenarios.
 
@@ -35,6 +34,14 @@ The app is designed for trusted internal networks. It also works over VPN as lon
 This repository is suitable for internal deployments and experimentation.
 
 License note: this is a source-available project, not an MIT/Apache-style permissive project. You may use, modify, and share it for personal, educational, internal business, and non-commercial use. You may not sell it, package it for paid resale, or offer it as a paid hosted service without prior written notice to and written permission from Wesley Van Hamme. See `LICENSE`.
+
+Legal and safety notes:
+
+- use is at your own risk
+- no warranty or guarantee is provided
+- the deployer is responsible for security, backups, privacy, GDPR compliance, and user access
+- the software is intended for trusted LAN/VPN use, not direct public internet exposure
+- see `LICENSE`, `DISCLAIMER.md`, `SECURITY.md`, and `PRIVACY.md`
 
 Before using it in a wider production environment, review:
 
