@@ -58,7 +58,7 @@ Before using it in a wider production environment, review:
 
 ## Screenshots
 
-These screenshots are rendered from the real app HTML/CSS with sanitized demo data. They do not contain real server addresses, real user names, patient/customer data, or internal notes.
+These screenshots are demo's.
 
 ### Client Sidebar
 
