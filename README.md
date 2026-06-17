@@ -76,16 +76,6 @@ These screenshots are rendered from the real app HTML/CSS with sanitized demo da
 
 ![Kabinette Notes update prompt](docs/images/update-prompt.png)
 
-### Closed Edge Tab
-
-![Kabinette Notes closed edge tab](docs/images/edge-tab.png)
-
-Regenerate these screenshots after UI changes with:
-
-```powershell
-npm run screenshots
-```
-
 ## Architecture
 
 ```text
