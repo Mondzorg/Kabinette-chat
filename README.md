@@ -11,6 +11,7 @@ It consists of:
 - a Windows sidebar client that stays on the screen edge
 - an admin dashboard for viewing and editing connected clients
 - optional machine-wide client updates through a local updater service
+- easy userfriendly build GUI script 
 
 The project was built for internal LAN use first. It can be adapted for other office, helpdesk, reception, classroom, or shared-workstation scenarios.
 
