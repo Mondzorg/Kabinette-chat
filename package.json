@@ -12,8 +12,7 @@
     "dev": "concurrently -k \"npm:server\" \"npm:admin\" \"npm:client\"",
     "build:client": "cross-env APP_MODE=client electron-builder --config electron-builder.client.json",
     "build:admin": "cross-env APP_MODE=admin electron-builder --config electron-builder.admin.json",
-    "build:server": "pkg src/server/server.js --targets node18-win-x64 --output dist/KabinetteServer.exe",
-    "screenshots": "electron scripts/render-readme-screenshots.js"
+    "build:server": "pkg src/server/server.js --targets node18-win-x64 --output dist/KabinetteServer.exe"
   },
   "dependencies": {
     "ws": "^8.17.1"

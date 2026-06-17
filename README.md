@@ -58,7 +58,7 @@ Before using it in a wider production environment, review:
 
 ## Screenshots
 
-These screenshots are demo's.
+These screenshots are rendered from the real app HTML/CSS with sanitized demo data. They do not contain real server addresses, real user names, patient/customer data, or internal notes.
 
 ### Client Sidebar
 
@@ -87,7 +87,7 @@ These screenshots are demo's.
 | Sidebar client   | <----------------------------^  ^
 | Shared PC A      |                                 ^
 +------------------+                                 ^
-      ||  Chat                                       ^
+                                                     ^
 +------------------+         WebSocket               ^
 | Sidebar client   |<-------------------------------+
 | Shared PC B      |
@@ -266,10 +266,26 @@ Keep this file backed up if the notes/chat history matter.
 The recommended build path on Windows is:
 
 ```powershell
-.\scripts\build-packages.ps1
+.\build-packages.ps1
 ```
 
+When started without parameters, the script opens a small Windows GUI. The GUI explains the Kabinette setup, lets you enter the internal server URL/IP and optional token, and lets you choose which parts to compile:
+
+- server exe
+- client/sidebar installer
+- admin beheer/controller installer
+- check-only validation
+- clean rebuild
+- skip dependency install
+
 The script installs npm dependencies, checks JavaScript syntax, builds the updater service, builds the server executable, builds the machine-wide client installer, prepares the server-hosted update files, and builds the admin installer.
+
+The server URL/token fields are used in two ways:
+
+- they are packaged as first-run defaults in the client and admin installers
+- they generate deployment helper files in `dist/`
+
+This means a newly installed client/admin can already know the intended server address. If a computer already has `%ProgramData%\KabinetteNotes\config.json`, that existing local config remains the active runtime config.
 
 Required build tools:
 
@@ -290,12 +306,20 @@ Generated packages:
 Useful variants:
 
 ```powershell
-.\scripts\build-packages.ps1 -Clean
-.\scripts\build-packages.ps1 -CheckOnly
-.\scripts\build-packages.ps1 -NoClient
-.\scripts\build-packages.ps1 -NoAdmin
-.\scripts\build-packages.ps1 -NoServer
+.\build-packages.ps1 -Cli
+.\build-packages.ps1 -Clean
+.\build-packages.ps1 -CheckOnly
+.\build-packages.ps1 -NoClient
+.\build-packages.ps1 -NoAdmin
+.\build-packages.ps1 -NoServer
+.\build-packages.ps1 -Cli -ServerUrl "ws://YOUR-SERVER-HOST:4780" -AuthToken "optional-token"
 ```
+
+Deployment helper files generated in `dist/`:
+
+- `client-config.example.json`
+- `deploy-settings.json`
+- `server-run.example.ps1`
 
 Manual build commands are also available:
 

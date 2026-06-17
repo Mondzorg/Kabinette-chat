@@ -39,7 +39,23 @@ const configPath = path.join(userDataDir, "config.json");
 const notePath = path.join(userDataDir, "note.txt");
 const chatOutboxPath = path.join(userDataDir, "chat-outbox.json");
 const chatHistoryPath = path.join(userDataDir, "chat-history.json");
-const defaultServerUrl = process.env.KABINETTE_DEFAULT_SERVER_URL || "ws://localhost:4780";
+
+function readBuildDefaults() {
+  try {
+    const defaultsPath = path.join(__dirname, "build-defaults.generated.json");
+    const defaults = JSON.parse(fsSync.readFileSync(defaultsPath, "utf8"));
+    return {
+      serverUrl: String(defaults.serverUrl || "").trim(),
+      authToken: String(defaults.authToken || "")
+    };
+  } catch {
+    return {};
+  }
+}
+
+const buildDefaults = readBuildDefaults();
+const defaultServerUrl = process.env.KABINETTE_DEFAULT_SERVER_URL || buildDefaults.serverUrl || "ws://localhost:4780";
+const defaultAuthToken = process.env.KABINETTE_DEFAULT_AUTH_TOKEN || buildDefaults.authToken || "";
 const currentAppUpdateVersion = `app:${app.getVersion()}`;
 const clientOpenWidth = 320;
 const clientHiddenWidth = 52;
@@ -644,7 +660,7 @@ async function ensureConfig() {
 
   const next = {
     serverUrl: config.serverUrl || defaultServerUrl,
-    authToken: config.authToken || "",
+    authToken: config.authToken || defaultAuthToken,
     cabinetName: config.cabinetName || os.hostname(),
     clientId,
     previousClientIds: normalizePreviousClientIds(previousClientIds, clientId),
