@@ -1,0 +1,58 @@
+:root {
+  color-scheme: dark;
+  background: transparent;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.edge-shell {
+  display: grid;
+  place-items: stretch;
+}
+
+.edge-tab-button {
+  width: 52px;
+  height: 88px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 0;
+  border-radius: 12px 0 0 12px;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(41, 45, 52, 0.58);
+  backdrop-filter: blur(16px);
+  cursor: grab;
+  font-size: 36px;
+  line-height: 1;
+  user-select: none;
+  touch-action: none;
+}
+
+.edge-shell.edge-side-left .edge-tab-button {
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 0;
+  border-radius: 0 12px 12px 0;
+}
+
+.edge-shell.edge-side-left .edge-arrow {
+  display: inline-block;
+  transform: rotate(180deg);
+}
+
+.edge-tab-button:hover {
+  background: rgba(56, 63, 73, 0.74);
+}
+
+.edge-tab-button.is-dragging {
+  cursor: grabbing;
+}

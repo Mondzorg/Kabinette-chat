@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kabinette Notitie</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="client-shell is-edge-only">
+    <button class="edge-tab" id="edgeTab" title="Notitie openen">
+      <span class="edge-arrow">‹</span>
+      <span class="edge-badge" id="edgeBadge" hidden></span>
+    </button>
+    <div class="update-toast" id="updateToast" hidden>
+      <span>Nieuwe update</span>
+      <button id="installToastUpdateButton" type="button">Installeren</button>
+    </div>
+    <main class="client-panel" id="panel">
+      <header class="client-header">
+        <div>
+          <strong id="cabinetName">Kabinet</strong>
+          <span id="connectionState">Verbinden...</span>
+        </div>
+        <div class="client-actions">
+          <div class="chat-target-picker" id="chatTargetPicker">
+            <button id="chatTargetButton" type="button" title="Chat met collega" aria-haspopup="listbox" aria-expanded="false">Chat met...</button>
+            <div class="chat-target-menu" id="chatTargetMenu" role="listbox" hidden></div>
+          </div>
+          <button id="settingsButton" title="Instellingen" aria-label="Instellingen">⚙</button>
+        </div>
+      </header>
+      <section class="client-settings" id="settingsPanel" hidden>
+        <label>
+          Server
+          <input id="clientServerUrl" placeholder="ws://server-host:4780" />
+        </label>
+        <p class="connection-detail" id="clientConnectionDetail"></p>
+        <label>
+          Token
+          <input id="clientAuthToken" type="password" placeholder="Optionele token" />
+        </label>
+        <label>
+          Kabinetnaam
+          <input id="clientCabinetName" placeholder="Kabinetnaam" />
+        </label>
+        <div class="client-identity">
+          <span id="clientComputerName"></span>
+          <span id="clientUserName"></span>
+        </div>
+        <div class="settings-actions">
+          <button id="cancelSettingsButton">Annuleren</button>
+          <button id="testConnectionButton">Test</button>
+          <button id="saveSettingsButton">Opslaan</button>
+        </div>
+      </section>
+      <section class="client-chat" id="chatPanel" hidden>
+        <header>
+          <strong id="chatPeerName">Chat</strong>
+          <button id="closeChatButton" title="Chat sluiten">×</button>
+        </header>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="chat-compose">
+          <input id="chatInput" placeholder="Kort bericht..." />
+          <button id="sendChatButton">Stuur</button>
+        </div>
+      </section>
+      <textarea id="note" spellcheck="true" placeholder="Typ hier je melding of notitie..."></textarea>
+    </main>
+    <script src="./client.js"></script>
+  </body>
+</html>

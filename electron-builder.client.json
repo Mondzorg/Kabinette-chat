@@ -1,0 +1,25 @@
+{
+  "appId": "be.kabinette.notes.client",
+  "productName": "Kabinette Notes Client",
+  "extraMetadata": {
+    "name": "kabinette-notes-client",
+    "kabinetteMode": "client"
+  },
+  "directories": {
+    "output": "dist/client"
+  },
+  "files": [
+    "src/**/*",
+    "package.json"
+  ],
+  "win": {
+    "target": "nsis",
+    "signAndEditExecutable": false
+  },
+  "nsis": {
+    "guid": "637a5710-8ddc-4cf4-88b2-d123dc46d4e8",
+    "perMachine": true,
+    "shortcutName": "Kabinette Notes Client",
+    "include": "build/client-installer.nsh"
+  }
+}

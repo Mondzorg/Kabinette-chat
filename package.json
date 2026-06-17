@@ -1,0 +1,28 @@
+{
+  "name": "kabinette-chat",
+  "version": "0.1.9",
+  "description": "Realtime desktop sidebar notes and chat for shared office computers.",
+  "author": "Wesley Van Hamme <wesley.van.hamme@mondzorgzuid.be>",
+  "license": "LicenseRef-Kabinette-Source-Available",
+  "main": "src/electron/main.js",
+  "scripts": {
+    "server": "node src/server/server.js",
+    "client": "cross-env APP_MODE=client electron .",
+    "admin": "cross-env APP_MODE=admin electron .",
+    "dev": "concurrently -k \"npm:server\" \"npm:admin\" \"npm:client\"",
+    "build:client": "cross-env APP_MODE=client electron-builder --config electron-builder.client.json",
+    "build:admin": "cross-env APP_MODE=admin electron-builder --config electron-builder.admin.json",
+    "build:server": "pkg src/server/server.js --targets node18-win-x64 --output dist/KabinetteServer.exe",
+    "screenshots": "electron scripts/render-readme-screenshots.js"
+  },
+  "dependencies": {
+    "ws": "^8.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "cross-env": "^7.0.3",
+    "electron": "^31.3.1",
+    "electron-builder": "^24.13.3",
+    "pkg": "^5.8.1"
+  }
+}

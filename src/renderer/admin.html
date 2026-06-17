@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kabinette Admin</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="admin-shell">
+    <header class="admin-topbar">
+      <div>
+        <h1>Kabinette Admin</h1>
+        <p id="adminState">Verbinden met server...</p>
+      </div>
+      <div class="server-control">
+        <input id="serverUrl" aria-label="Server URL" />
+        <input id="authToken" type="password" aria-label="Token" placeholder="Token" />
+        <button id="connectButton">Verbinden</button>
+      </div>
+    </header>
+    <section class="admin-grid" id="clients"></section>
+    <template id="clientTemplate">
+      <article class="note-window">
+        <header>
+          <div>
+            <input class="cabinet-input" />
+            <p class="meta"></p>
+          </div>
+          <div class="card-actions">
+            <button class="remove-client" title="Offline client verwijderen">Verwijder</button>
+            <span class="status-pill"></span>
+          </div>
+        </header>
+        <textarea class="admin-note" spellcheck="true"></textarea>
+      </article>
+    </template>
+    <script src="./admin.js"></script>
+  </body>
+</html>

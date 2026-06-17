@@ -1,0 +1,23 @@
+{
+  "appId": "be.kabinette.notes.admin",
+  "productName": "Kabinette Notes Admin",
+  "extraMetadata": {
+    "name": "kabinette-notes-admin",
+    "kabinetteMode": "admin"
+  },
+  "directories": {
+    "output": "dist/admin"
+  },
+  "files": [
+    "src/**/*",
+    "package.json"
+  ],
+  "win": {
+    "target": "nsis",
+    "signAndEditExecutable": false
+  },
+  "nsis": {
+    "guid": "13deadea-3763-42e2-8f53-3ed888012b77",
+    "shortcutName": "Kabinette Notes Admin"
+  }
+}
