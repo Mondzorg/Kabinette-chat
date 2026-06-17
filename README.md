@@ -87,7 +87,7 @@ These screenshots are demo's.
 | Sidebar client   | <----------------------------^  ^
 | Shared PC A      |                                 ^
 +------------------+                                 ^
-                                                     ^
+      ||  Chat                                       ^
 +------------------+         WebSocket               ^
 | Sidebar client   |<-------------------------------+
 | Shared PC B      |
